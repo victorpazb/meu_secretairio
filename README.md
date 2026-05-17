@@ -66,6 +66,11 @@ Expected body:
 }
 ```
 
+Constraints:
+
+- `text`: required, 1 to 20,000 characters
+- `action`: required string
+
 ## Scripts
 
 Frontend:
