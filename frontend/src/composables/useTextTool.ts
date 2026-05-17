@@ -15,7 +15,7 @@ export function useTextTool() {
   const isLoading = ref(false)
   const toast = ref('')
 
-  watch(toast, (nextToast) => {
+  watch(toast, (nextToast, _previousToast, onCleanup) => {
     if (!nextToast) {
       return
     }
@@ -24,7 +24,7 @@ export function useTextTool() {
       toast.value = ''
     }, 2000)
 
-    return () => window.clearTimeout(timeoutId)
+    onCleanup(() => window.clearTimeout(timeoutId))
   })
 
   const actions = computed(() => TOOL_ACTIONS[tab.value])
