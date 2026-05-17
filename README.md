@@ -4,7 +4,7 @@ Modern and minimal full-stack boilerplate for an AI-powered text utility platfor
 
 ## Tech stack
 
-- Frontend: React + TypeScript + Vite + TailwindCSS
+- Frontend: Vue.js + TypeScript + Vite + TailwindCSS
 - Backend: Node.js + Express + TypeScript
 
 ## Project structure
@@ -13,7 +13,7 @@ Modern and minimal full-stack boilerplate for an AI-powered text utility platfor
 frontend/
   src/
     components/
-    hooks/
+    composables/
     pages/
     services/
     types/

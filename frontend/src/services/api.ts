@@ -15,6 +15,7 @@ type GeneratePayload = {
 
 type GenerateResponse = {
   result: string
+  message?: string
 }
 
 export async function generateText(tab: ToolTab, payload: GeneratePayload): Promise<string> {
@@ -24,7 +25,7 @@ export async function generateText(tab: ToolTab, payload: GeneratePayload): Prom
     body: JSON.stringify(payload),
   })
 
-  const data = (await response.json()) as GenerateResponse & { message?: string }
+  const data = (await response.json()) as GenerateResponse
 
   if (!response.ok) {
     throw new Error(data.message ?? 'Unable to generate text right now.')
