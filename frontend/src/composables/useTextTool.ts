@@ -20,9 +20,11 @@ export function useTextTool() {
       return
     }
 
-    window.setTimeout(() => {
+    const timeoutId = window.setTimeout(() => {
       toast.value = ''
     }, 2000)
+
+    return () => window.clearTimeout(timeoutId)
   })
 
   const actions = computed(() => TOOL_ACTIONS[tab.value])
