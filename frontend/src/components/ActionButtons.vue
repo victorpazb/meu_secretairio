@@ -12,17 +12,15 @@ const emit = defineEmits<{
 </script>
 
 <template>
-  <div class="mb-4 flex flex-wrap gap-2 sm:mb-5">
+  <div class="action-list">
     <button
       v-for="option in options"
       :key="option.id"
       type="button"
       @click="emit('actionChange', option.id)"
       :class="[
-        'rounded-full px-4 py-2 text-sm font-medium transition-all duration-200',
-        selectedAction === option.id
-          ? 'bg-indigo-500 text-white shadow-md shadow-indigo-500/30'
-          : 'bg-slate-800 text-slate-200 hover:bg-slate-700',
+        'action-pill',
+        selectedAction === option.id ? 'action-pill--active' : '',
       ]"
     >
       {{ option.label }}
