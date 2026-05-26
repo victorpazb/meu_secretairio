@@ -2,7 +2,7 @@ import { computed, ref } from 'vue'
 
 export type Language = 'pt-BR' | 'en-US'
 
-const STORAGE_KEY = 'meu_secretairio_language'
+const STORAGE_KEY = 'meu_secretario_language'
 const language = ref<Language>('pt-BR')
 let isInitialized = false
 
