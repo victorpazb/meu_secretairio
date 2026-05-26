@@ -1,5 +1,8 @@
 <script setup lang="ts">
-import { TOOL_LABELS, type ToolTab } from '../types/tool'
+import { computed } from 'vue'
+import { TRANSLATIONS } from '../content'
+import { useLanguage } from '../composables/useLanguage'
+import { TOOL_TABS, type ToolTab } from '../types/tool'
 
 defineProps<{
   activeTab: ToolTab
@@ -9,7 +12,9 @@ const emit = defineEmits<{
   tabChange: [tab: ToolTab]
 }>()
 
-const tabs: ToolTab[] = ['corrector', 'summarizer', 'translator']
+const { language } = useLanguage()
+const tabs: ToolTab[] = TOOL_TABS
+const tabLabels = computed(() => TRANSLATIONS[language.value].tabs)
 </script>
 
 <template>
@@ -24,7 +29,7 @@ const tabs: ToolTab[] = ['corrector', 'summarizer', 'translator']
         tab === activeTab ? 'tab-button--active' : '',
       ]"
     >
-      {{ TOOL_LABELS[tab] }}
+      {{ tabLabels[tab] }}
     </button>
   </nav>
 </template>

@@ -1,13 +1,16 @@
 import { computed, ref, watch } from 'vue'
 import { generateText } from '../services/api'
-import { TOOL_ACTIONS, type ToolTab } from '../types/tool'
+import { TRANSLATIONS } from '../content'
+import { useLanguage } from './useLanguage'
+import { TOOL_ACTION_IDS, type ActionOption, type ToolTab } from '../types/tool'
 
 export function useTextTool() {
+  const { language } = useLanguage()
   const tab = ref<ToolTab>('corrector')
   const selectedActions = ref<Record<ToolTab, string>>({
-    corrector: TOOL_ACTIONS.corrector[0].id,
-    summarizer: TOOL_ACTIONS.summarizer[0].id,
-    translator: TOOL_ACTIONS.translator[0].id,
+    corrector: TOOL_ACTION_IDS.corrector[0],
+    summarizer: TOOL_ACTION_IDS.summarizer[0],
+    translator: TOOL_ACTION_IDS.translator[0],
   })
 
   const input = ref('')
@@ -27,7 +30,14 @@ export function useTextTool() {
     onCleanup(() => window.clearTimeout(timeoutId))
   })
 
-  const actions = computed(() => TOOL_ACTIONS[tab.value])
+  const actions = computed<ActionOption[]>(() => {
+    const localeActions = TRANSLATIONS[language.value].actions[tab.value]
+
+    return TOOL_ACTION_IDS[tab.value].map((actionId) => ({
+      id: actionId,
+      label: localeActions[actionId] ?? actionId,
+    }))
+  })
   const selectedAction = computed(() => selectedActions.value[tab.value])
 
   function setTab(nextTab: ToolTab) {
@@ -44,7 +54,7 @@ export function useTextTool() {
 
   async function handleGenerate() {
     if (!input.value.trim()) {
-      toast.value = 'Paste text before generating.'
+      toast.value = TRANSLATIONS[language.value].toasts.pasteBeforeGenerating
       return
     }
 
@@ -57,7 +67,7 @@ export function useTextTool() {
       })
       result.value = generatedText
     } catch (error) {
-      toast.value = error instanceof Error ? error.message : 'Unexpected error.'
+      toast.value = error instanceof Error ? error.message : TRANSLATIONS[language.value].toasts.unexpectedError
     } finally {
       isLoading.value = false
     }
@@ -69,11 +79,11 @@ export function useTextTool() {
     }
 
     await navigator.clipboard.writeText(result.value)
-    toast.value = 'Result copied!'
+    toast.value = TRANSLATIONS[language.value].controls.copied
   }
 
   function handlePdfPlaceholder() {
-    toast.value = 'PDF download will be available soon.'
+    toast.value = TRANSLATIONS[language.value].controls.pdfSoon
   }
 
   return {

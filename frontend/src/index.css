@@ -108,6 +108,13 @@ body {
   max-width: 38rem;
 }
 
+.app-header-actions {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
 .app-kicker {
   margin: 0 0 0.5rem;
   font-size: 0.72rem;
@@ -147,6 +154,29 @@ body {
     transform 160ms ease,
     border-color 160ms ease,
     background-color 160ms ease;
+}
+
+.language-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--panel-border);
+  border-radius: 999px;
+  background: var(--panel-strong);
+  padding: 0.75rem 1rem;
+  color: var(--text-primary);
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  transition:
+    transform 160ms ease,
+    border-color 160ms ease,
+    background-color 160ms ease;
+}
+
+.language-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--accent-border);
 }
 
 .theme-toggle:hover {
