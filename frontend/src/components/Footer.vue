@@ -9,13 +9,10 @@ const copy = computed(() => TRANSLATIONS[language.value])
 
 <template>
   <footer class="app-footer">
-<<<<<<< Updated upstream
     {{ copy.footer }}
-=======
     Fast, simple, and ready for future Google Gemini integration.
     <a href="https://www.linkedin.com/in/victorpazbraga/" class="footer-link" target="_blank" rel="noopener noreferrer">
       <br/>Created by: <b>Victor Paz Braga</b>
     </a>
->>>>>>> Stashed changes
   </footer>
 </template>
