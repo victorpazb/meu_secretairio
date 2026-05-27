@@ -5,6 +5,7 @@ type TranslationSet = {
   header: {
     kicker: string
     subtitle: string
+    title: string
     themeLight: string
     themeDark: string
   }
@@ -40,6 +41,7 @@ export const TRANSLATIONS: Record<Language, TranslationSet> = {
   'pt-BR': {
     header: {
       kicker: 'Ferramenta de texto com IA',
+      title: 'Meu Secretário',
       subtitle: 'Um espaço tranquilo para revisar, resumir e traduzir textos com foco em clareza.',
       themeLight: 'Modo claro',
       themeDark: 'Modo escuro',
@@ -96,6 +98,8 @@ export const TRANSLATIONS: Record<Language, TranslationSet> = {
   },
   'en-US': {
     header: {
+      title: 'DeskMate',
+      // title: 'My Secretary',
       kicker: 'AI text utility',
       subtitle: 'A calm workspace to review, summarize, and translate text with clarity in mind.',
       themeLight: 'Light mode',

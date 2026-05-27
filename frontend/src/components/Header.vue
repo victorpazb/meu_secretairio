@@ -3,8 +3,9 @@
     <div class="app-header-copy">
       <p class="app-kicker">{{ copy.header.kicker }}</p>
       <div class="app-header-brand">
-        <img class="app-logo" src="/favicon.svg" alt="" aria-hidden="true" />
-        <h1 class="app-title">Meu Secretário</h1>
+        <img class="app-logo" src="/transp-fundo.png" alt="" aria-hidden="true" />
+<!--        <h1 class="app-title">Meu Secretário</h1>-->
+        <h1 class="app-title">{{ copy.header.title }}</h1>
       </div>
       <p class="app-subtitle">{{ copy.header.subtitle }}</p>
     </div>
