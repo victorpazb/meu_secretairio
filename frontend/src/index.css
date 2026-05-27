@@ -62,8 +62,8 @@ body {
   margin: 0;
   min-height: 100vh;
   background:
-    radial-gradient(circle at top, var(--page-bg-accent) 0%, transparent 36%),
-    linear-gradient(180deg, var(--page-bg) 0%, color-mix(in srgb, var(--page-bg) 86%, white 14%) 100%);
+          radial-gradient(circle at top, var(--page-bg-accent) 0%, transparent 36%),
+          linear-gradient(180deg, var(--page-bg) 0%, color-mix(in srgb, var(--page-bg) 86%, white 14%) 100%);
   color: var(--text-primary);
 }
 
@@ -83,8 +83,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(circle at top left, rgba(91, 75, 219, 0.12), transparent 34%),
-    radial-gradient(circle at top right, rgba(255, 255, 255, 0.32), transparent 28%);
+          radial-gradient(circle at top left, rgba(91, 75, 219, 0.12), transparent 34%),
+          radial-gradient(circle at top right, rgba(255, 255, 255, 0.32), transparent 28%);
   pointer-events: none;
 }
 
@@ -151,9 +151,9 @@ body {
   color: var(--text-primary);
   box-shadow: var(--shadow-soft);
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background-color 160ms ease;
+          transform 160ms ease,
+          border-color 160ms ease,
+          background-color 160ms ease;
 }
 
 .language-switch {
@@ -166,9 +166,9 @@ body {
   padding: 0.6rem 0.8rem;
   color: var(--text-primary);
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background-color 160ms ease;
+          transform 160ms ease,
+          border-color 160ms ease,
+          background-color 160ms ease;
 }
 
 .language-switch:hover {
@@ -181,8 +181,8 @@ body {
   line-height: 1;
   opacity: 0.55;
   transition:
-    opacity 160ms ease,
-    transform 160ms ease;
+          opacity 160ms ease,
+          transform 160ms ease;
 }
 
 .language-switch__flag--active {
@@ -194,7 +194,7 @@ body {
   position: relative;
   --thumb-size: 1.85rem;
   --thumb-offset: 0.2rem;
-  --thumb-translate: calc(100% - (var(--thumb-size) + (var(--thumb-offset) * 2)));
+  --thumb-translate: calc(100% + var(--thumb-offset));
   width: 4.25rem;
   height: 2.25rem;
   border-radius: 999px;
@@ -270,11 +270,11 @@ body {
   font-weight: 600;
   color: var(--text-secondary);
   transition:
-    transform 160ms ease,
-    background-color 160ms ease,
-    border-color 160ms ease,
-    color 160ms ease,
-    box-shadow 160ms ease;
+          transform 160ms ease,
+          background-color 160ms ease,
+          border-color 160ms ease,
+          color 160ms ease,
+          box-shadow 160ms ease;
 }
 
 .tab-button:hover {
@@ -306,11 +306,11 @@ body {
   font-weight: 600;
   color: var(--text-secondary);
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background-color 160ms ease,
-    color 160ms ease,
-    box-shadow 160ms ease;
+          transform 160ms ease,
+          border-color 160ms ease,
+          background-color 160ms ease,
+          color 160ms ease,
+          box-shadow 160ms ease;
 }
 
 .action-pill:hover {
@@ -343,11 +343,11 @@ body {
   font-size: 0.92rem;
   font-weight: 600;
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background-color 160ms ease,
-    color 160ms ease,
-    opacity 160ms ease;
+          transform 160ms ease,
+          border-color 160ms ease,
+          background-color 160ms ease,
+          color 160ms ease,
+          opacity 160ms ease;
 }
 
 .button-primary {

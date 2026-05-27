@@ -1,17 +1,3 @@
-<script setup lang="ts">
-import { computed } from 'vue'
-import { TRANSLATIONS } from '../content'
-import { useLanguage } from '../composables/useLanguage'
-import { useTheme } from '../composables/useTheme'
-
-const { isDark, toggleTheme } = useTheme()
-const { language, isPortuguese, toggleLanguage } = useLanguage()
-const copy = computed(() => TRANSLATIONS[language.value])
-const languageSwitchLabel = computed(() =>
-  isPortuguese.value ? 'Trocar para inglês' : 'Switch to Portuguese',
-)
-</script>
-
 <template>
   <header class="app-header">
     <div class="app-header-copy">
@@ -22,12 +8,12 @@ const languageSwitchLabel = computed(() =>
 
     <div class="app-header-actions">
       <button
-        type="button"
-        class="language-switch"
-        role="switch"
-        :aria-checked="isPortuguese"
-        :aria-label="languageSwitchLabel"
-        @click="toggleLanguage"
+          type="button"
+          class="language-switch"
+          role="switch"
+          :aria-checked="isPortuguese"
+          :aria-label="languageSwitchLabel"
+          @click="toggleLanguage"
       >
         <span class="language-switch__flag" :class="{ 'language-switch__flag--active': isPortuguese }">
           <svg class="language-switch__flag-icon" viewBox="0 0 24 16" aria-hidden="true" focusable="false">
@@ -69,3 +55,18 @@ const languageSwitchLabel = computed(() =>
     </div>
   </header>
 </template>
+
+
+<script setup lang="ts">
+import { computed } from 'vue'
+import { TRANSLATIONS } from '../content'
+import { useLanguage } from '../composables/useLanguage'
+import { useTheme } from '../composables/useTheme'
+
+const { isDark, toggleTheme } = useTheme()
+const { language, isPortuguese, toggleLanguage } = useLanguage()
+const copy = computed(() => TRANSLATIONS[language.value])
+const languageSwitchLabel = computed(() =>
+  isPortuguese.value ? 'Trocar para inglês' : 'Switch to Portuguese',
+)
+</script>
