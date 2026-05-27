@@ -108,6 +108,12 @@ body {
   max-width: 38rem;
 }
 
+.app-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
 .app-header-actions {
   display: flex;
   flex-wrap: wrap;
@@ -130,6 +136,13 @@ body {
   line-height: 1.05;
   font-weight: 700;
   letter-spacing: -0.04em;
+}
+
+.app-logo {
+  width: clamp(3rem, 7vw, 4.4rem);
+  height: auto;
+  flex-shrink: 0;
+  filter: drop-shadow(0 8px 20px rgba(15, 23, 42, 0.16));
 }
 
 .app-subtitle {
