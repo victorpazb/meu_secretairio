@@ -5,8 +5,11 @@ import { useLanguage } from '../composables/useLanguage'
 import { useTheme } from '../composables/useTheme'
 
 const { isDark, toggleTheme } = useTheme()
-const { language, toggleLanguage } = useLanguage()
+const { language, isPortuguese, toggleLanguage } = useLanguage()
 const copy = computed(() => TRANSLATIONS[language.value])
+const languageSwitchLabel = computed(() =>
+  isPortuguese.value ? 'Trocar para inglês' : 'Switch to Portuguese',
+)
 </script>
 
 <template>
@@ -18,8 +21,19 @@ const copy = computed(() => TRANSLATIONS[language.value])
     </div>
 
     <div class="app-header-actions">
-      <button type="button" class="language-toggle" @click="toggleLanguage">
-        <span>{{ language === 'pt-BR' ? copy.languageToggle.en : copy.languageToggle.pt }}</span>
+      <button
+        type="button"
+        class="language-switch"
+        role="switch"
+        :aria-checked="isPortuguese"
+        :aria-label="languageSwitchLabel"
+        @click="toggleLanguage"
+      >
+        <span class="language-switch__flag" :class="{ 'language-switch__flag--active': isPortuguese }">🇧🇷</span>
+        <span class="language-switch__track" aria-hidden="true">
+          <span class="language-switch__thumb" :class="{ 'language-switch__thumb--english': !isPortuguese }" />
+        </span>
+        <span class="language-switch__flag" :class="{ 'language-switch__flag--active': !isPortuguese }">🇺🇸</span>
       </button>
 
       <button type="button" class="theme-toggle" @click="toggleTheme">
