@@ -192,6 +192,9 @@ body {
 
 .language-switch__track {
   position: relative;
+  --thumb-size: 1.85rem;
+  --thumb-offset: 0.2rem;
+  --thumb-translate: calc(100% - (var(--thumb-size) + (var(--thumb-offset) * 2)));
   width: 4.25rem;
   height: 2.25rem;
   border-radius: 999px;
@@ -202,10 +205,10 @@ body {
 
 .language-switch__thumb {
   position: absolute;
-  top: 0.2rem;
-  left: 0.2rem;
-  width: 1.85rem;
-  height: 1.85rem;
+  top: var(--thumb-offset);
+  left: var(--thumb-offset);
+  width: var(--thumb-size);
+  height: var(--thumb-size);
   border-radius: 999px;
   background: var(--panel-strong);
   box-shadow: var(--shadow-soft);
@@ -213,7 +216,13 @@ body {
 }
 
 .language-switch__thumb--english {
-  transform: translateX(calc(100% - 2.05rem));
+  transform: translateX(var(--thumb-translate));
+}
+
+.language-switch__flag-icon {
+  display: block;
+  width: 1.45rem;
+  height: auto;
 }
 
 .theme-toggle:hover {
