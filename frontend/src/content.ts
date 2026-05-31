@@ -18,6 +18,7 @@ type TranslationSet = {
     generating: string
     copy: string
     copied: string
+    retry: string
     pdf: string
     pdfSoon: string
   }
@@ -55,6 +56,7 @@ export const TRANSLATIONS: Record<Language, TranslationSet> = {
       generating: 'Gerando...',
       copy: 'Copiar',
       copied: 'Resultado copiado!',
+      retry: 'Refazer',
       pdf: 'Baixar PDF (em breve)',
       pdfSoon: 'O download em PDF estará disponível em breve.',
     },
@@ -114,6 +116,7 @@ export const TRANSLATIONS: Record<Language, TranslationSet> = {
       generating: 'Generating...',
       copy: 'Copy',
       copied: 'Result copied!',
+      retry: 'Retry',
       pdf: 'Download PDF (soon)',
       pdfSoon: 'PDF download will be available soon.',
     },
